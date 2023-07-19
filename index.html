@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mandelbrot Set Visualizer</title>		
+        <link rel="stylesheet" href="stylesheet.css">
+        <meta charset="UTF-8">
+        <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
+        <script src="BigDecimal-all-last.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="index.js"></script>
+        <link rel="icon" type="image/png" href="icon.jpeg"/>
+    </head>
+    <body>
+
+        <div id="canvas_container">
+            <div class="button_container">
+                
+                <div class = "setting_options">
+                    <div class="setting_option">
+                        <a title = "Refresh" class = "buttons" id = "refreshButton"><i class="fa-solid fa-arrows-rotate"></i></a>
+                        REFRESH
+                    </div>
+                </div>
+                
+                <div class = "setting_options">
+                    <div class="setting_option">
+                        <a title = "Undo Zoom" class = "buttons" id = "undoButton"><i class="fa-sharp fa-solid fa-rotate-left"></i></a>
+                        UNDO
+                    </div>
+                </div>
+
+                <div class = "setting_options">
+                    <div class="setting_option">
+                        <select id= "maxIterations" title="Maxiterations in a Mandelbrot set determines the number of iterations used to determine if a point is in the set or not, with a higher value resulting in more detailed fractal shapes. (Increasing this value increases processing time.)">
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="250">250</option>
+                            <option value="500">500</option>
+                            <option value="1000">1000</option>
+                            <option value="5000">5000</option>
+                            <option value="10000">10000</option>
+                            <option value="50000">50000</option>
+                            <option value="100000">100000</option>
+                        </select>
+                        MAX ITERATIONS
+                    </div>
+                </div>
+
+                <div class = "setting_options">
+                    <div class="setting_option">
+                        <select id = "workers" title="Increasing the number of workers might increase computing speed by using more of your device's processing. Values above the number of threads supported by your device will not provide additional computational speed.">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="4">4</option>
+                            <option value="8">8</option>
+                            <option value="12">12</option>
+                            <option value="16">16</option>
+                        </select>
+                        <span>WORKERS</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- <canvas style="height: 100vh; width: 125vh;" id="myCanvas"></canvas> -->
+            <canvas width="774" height="619" id="myCanvas"></canvas>
+
+            <div class="button_container_right">
+                <p style="border-style: dashed; padding: 10px;">Drag on the canvas to draw a box and zoom in on a particular section of the mandelbrot set. </p>
+                <div id="status_box">
+                <b>STATUS:</b><br> <b id = "statusIndicator" style="color: green;">Idle</b> <br> <b id="rowsCalculated"></b>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
